@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="simple.xsl" ?>
+<favorite_video_games>
+	
+	<games>
+		<name>Xenoblade Chronicles</name>
+		<release>june 10 2010 </release>
+		<description>Travel across the bodies of two titans on a quest for revenge</description>
+		<OG_console>Wii</OG_console>
+	</games>
+
+	<games>
+		<name>The World ends with you</name>
+		<release>july 26 2007 </release>
+		<description>Survive a week to gain a second chance at life or face erasure</description>
+		<OG_console>DS</OG_console>
+	</games>
+	<games>
+		<name>Chrono Trigger</name>
+		<release> March 11 1995</release>
+		<description>Travel through time to save the world from a doomed future</description>
+		<OG_console>SNES</OG_console>
+	</games>
+	<games>
+		<name>Pokemon Diamond</name>
+		<release>september 28 2006 </release>
+		<description>Travel the sinnoh region to catch pokemon and become the champion</description>
+		<OG_console>DS</OG_console>
+	</games>
+	<p><a href="default.html">Home</a></p>
+</favorite_video_games>

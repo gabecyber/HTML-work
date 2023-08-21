@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+   
+   
+    <title>JQuery Examples</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#process").click(function () {
+                var discount = 0.00;
+                var message = "Order\n";
+                message += "---------------------------\n";
+                var subtotal= 0;  // Stores total credits
+                
+                var inputbook = $("#Book").val();
+                var bookprice = $("#Price").val();
+                
+                var classificationDesc = $("#Shipping option:selected").text();
+                var classificationNum = $("#Shipping option:selected").val();
+
+
+
+                if (bookprice > 0) {
+                    message += "$" + bookprice + " - " + inputbook + "\n";
+
+
+                    subtotal += parseFloat(bookprice);
+                }
+                
+                var activities = []; 
+                var optionsname = [];
+                $("input[name='checkbox']:checked").each(function () {
+                    optionsname.push($(this).text());
+                });
+                $("input[name='checkbox']:checked").each(function () {
+                    activities.push($(this).val());
+                });
+
+             
+
+                
+                var customertype = $("input[name='Discount']:checked").text();
+                var customerdiscount = $("input[name='Discount']:checked").val();
+                // Get classes from multi-select dropdown
+                var classes = [];  // Array to store class names
+                var credits = [];  // Array to store class credits
+                
+                $("#booklist option:selected").each(function () {
+                    classes.push($(this).text());
+                    credits.push($(this).val());
+                    subtotal += parseInt($(this).val());
+                });
+
+                for (i = 0; i < classes.length; i++) {
+                    message += credits[i] + "-" + classes[i] + "\n";
+                }
+
+                message += "$" + classificationNum + "-" + classificationDesc + "\n";
+                subtotal += parseFloat(classificationNum);
+                for (i = 0; i < activities.length; i++) {
+                    if (activities[i] == 10.00) {
+                        subtotal += 10.00;
+                        message += "$" + activities[i] + "- Rush Order" + "\n";
+                    }
+                    if (activities[i] == 5.00) {
+                        subtotal += 5.00;
+                        message += "$" + activities[i] + "-  Gift Wrap" + "\n";
+                        break;
+                    }
+                }
+                message += customertype + "\n";
+                message += "--------------------------";
+                message += "\nsubTotal " + subtotal;
+                if (customerdiscount > 0) {
+                     discount = subtotal * customerdiscount;
+                    message += "\nDiscount: (10%)" + discount;
+                }
+                var Total = subtotal - discount;
+                message += "\nTotal " + Total;
+                $("#message").val(message);
+               
+
+
+                
+
+              
+
+
+            });
+
+
+        });
+              
+    </script>
+</head>
+<body>
+
+    <!-- 
+        <p style="margin-left: 120px">
+            Book
+            <input id="Book" type="text" value="" />
+            Price
+            <input id="Price" type="text" value="" />
+        </p>
+
+
+        
+
+        
+
+
+
+
+
+
+   
+
+
+
+         -->
+
+    <h3>
+
+        Book Order Form
+    </h3>
+
+
+
+    <p class="ex5">
+
+        Select Books and/or supply book title and price
+        <select size="4" id="booklist" multiple=multiple>
+            <option value="20.00">Walden Pond</option>
+            <option value="15.00">Zen and the Art</option>
+            <option value="8.00">The Razor's Edge</option>
+            <option value="15.00">The Poisonwood Bible</option>
+            <option value="10.00">Wuthering Heights</option>
+
+        </select>
+
+    </p>
+
+    <p style="margin-left: 120px">
+        Book
+        <input id="Book" class=" inVals" type="text" value="" />
+        Price
+        <input id="Price"class="inVals" type="text" value="" />
+    </p>
+    <p>
+        Ship To
+        <select size="1" class="inVals" id="Shipping" name="D1">
+            <option value="5.00">NY($5)</option>
+            <option value="7.0">CA($7)</option>
+            <option value="3.0">SC($3)</option>
+        </select>
+
+    </p>
+    <p>
+        Options
+
+        <input type="checkbox" name="checkbox" value="10.00" />Rush Order
+        <input type="checkbox" name="checkbox" value="5.00" />Gift Wrap<br />
+
+    </p>
+
+    <p>
+        Customer Type
+
+
+        <input type="radio" value="0" name="Discount" id="d1" />General<br />
+        <input type="radio" value="0.10" name="Discount" id="d2" />Government<br />
+
+    </p>
+
+
+
+    <p><button type="button" id="process">Purchase</button></p>
+
+    <p><textarea rows="10" id="message" cols="50"></textarea></p>
+
+
+
+
+    <p><a href="default.html">Home</a></p>
+</body>
+</html>

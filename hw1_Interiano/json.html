@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Company</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+        function populateHeader(company) {
+            const myH1 = document.createElement('h1');
+            myH1.textContent = company['companyName'];
+            // Could have used: myH1.innerHTML, myH1.innerText;
+            header.appendChild(myH1);
+
+            const myPara = document.createElement('p');
+            myPara.textContent = 'division: ' + company['division'] + ', ' + company['location'];
+            const myPara2 = document.createElement('p');
+            myPara2.textContent = 'Head: ' + company['divisionHeadName'];
+            header.appendChild(myPara);
+            header.appendChild(myPara2);
+        }
+
+        function showCompany(company) {
+            const people = company['members'];  // members is an array of objects
+
+            for (let i = 0; i < people.length; i++) {
+                const myArticle = document.createElement('article');
+                const myH2 = document.createElement('h2');
+                const myPara1 = document.createElement('p');
+                const myPara3 = document.createElement('p');
+                const myList = document.createElement('ul');
+
+                myH2.textContent = people[i].name + ", " + people[i].gender;
+                myPara1.textContent = 'Age: ' + people[i].age + ', ' + "Favorite Fruit: " + people[i].favoriteFruit + ", " + "Contacts: ";
+
+
+                const contactP = people[i].contacts;
+                
+                for (let j = 0; j < contactP.length; j++) {
+                    const contactName = contactP[i].name;
+                    const contactOffice = contactP[i].company;
+                    const listItem = document.createElement('li');
+                    listItem.textContent = contactName+", "+contactOffice;
+                    myList.appendChild(listItem);
+                }
+
+                myArticle.appendChild(myH2);
+                myArticle.appendChild(myPara1);
+
+                myArticle.appendChild(myList);
+
+                section.appendChild(myArticle);
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+
+    <header id="hdr">
+    </header>
+
+    <section>
+    </section>
+
+    <script>
+        const header = document.querySelector('header');
+        // Other approaches:
+        //		const header = document.getElementById('hdr');
+        //		const hdr = document.getElementsByTagName('header');
+        //		const header = hdr[0];
+        const section = document.querySelector('section');
+
+        // URL where jSON data is located
+        let requestURL = 'https://raw.githubusercontent.com/drgap/json_example/main/company.json';
+
+        // AJAX - make asynchronous call to get data.
+        let request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';  // type of data being returned
+        //		request.responseType = 'text';  // type of data being returned
+        request.send();
+
+        // When server responds, call this function
+        request.onload = function () {
+            const company = request.response; // Converts the jSON to a single object.
+            //            const superHeroes = JSON.parse(request.response);
+            //alert(superHeroes);
+            populateHeader(company);  // Build page header
+            showCompany(company);  // Build main section of page
+        }
+    </script>
+    <p><a href="default.html">Home</a></p>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="hw03_Interiano._default">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAACEEBAABQAAAkAAAEQgIIAAAAABAAAGAAIAAAI=</HashCode>
+      <FileName>default.aspx.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="purchases" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="hw03_Interiano.Seats">
+    <Position X="8.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAQAAAAAAAAAQMAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Seats.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="hw03_Interiano.SEvent">
+    <Position X="11" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAECAAAAAAAAAAAAAIEAIAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>SEvent.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="purchases" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="hw03_Interiano.Summary">
+    <Position X="16" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAgCAAAVEAAAAAAEAgAABBAAIJACAAAAAAAAEAIAAAI=</HashCode>
+      <FileName>Summary.aspx.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="order" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="purchases" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

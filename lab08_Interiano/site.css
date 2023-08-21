@@ -1,0 +1,52 @@
+﻿body {
+	font-family: Verdana;
+}
+
+.breadcrumbs {
+	font-family: Verdana;
+	font-size: smaller;
+}
+
+.line {
+	border: thin solid #000000;
+}
+
+.top {
+	vertical-align: text-top;
+}
+
+.data {
+	padding: 0px;
+}
+
+.medium {
+	padding: 5px;
+}
+
+.mediumIndent {
+	padding: 10px;
+	list-style-type: lower-alpha;
+}
+
+.indent {
+	margin: 0px;
+	padding: 5px 5px 5px 5px;
+}
+
+.panelPad {
+	padding: 0px;
+	margin: 0px 0px 14px 0px;
+	font-weight: normal;
+}
+
+P.codeP {
+	color: Blue;
+	font-family: "Courier New", Courier, monsospace;
+	margin-left: 50px;
+}
+
+.LName {
+	color: Red;
+	font-family: "Courier New", Courier, monsospace;
+	font-weight: bold;
+}

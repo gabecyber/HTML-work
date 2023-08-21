@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33214.272
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "hw1_Interiano", "hw1_Interiano.csproj", "{8CEA3A07-D9DF-41B3-B8FE-B119A8EFEC2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CEA3A07-D9DF-41B3-B8FE-B119A8EFEC2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CEA3A07-D9DF-41B3-B8FE-B119A8EFEC2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CEA3A07-D9DF-41B3-B8FE-B119A8EFEC2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CEA3A07-D9DF-41B3-B8FE-B119A8EFEC2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {425C552D-F63C-45FE-88C7-876DA73734CB}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+            border: 1px solid #00CCFF;
+        }
+    </style>
+
+        <style>
+        p.ex5 {
+            
+            margin-right: auto;           
+            letter-spacing: 2px;
+            font-weight: bold;
+            width: 75%;
+        }
+    </style>
+    <meta charset="utf-8" />
+    <title>JavaScript Examples</title>
+    <script type="text/javascript">
+    function Purchase() {
+        var chk = document.getElementsByName("checkbox");
+        var currtotal = 0.00;
+        var subtotal = 0.00;
+        var rb1 = document.getElementsByName("Discount");
+        var discount = 0.00;
+        var total = 0.00;
+        var dd = document.getElementById("booklist");
+        var selOptions = dd.selectedOptions;
+        var msg = "Order\n";
+        var dd = document.getElementById("Shipping");
+        var shippingPrice = dd.options[dd.selectedIndex].value;
+        var shippingLocation = dd.options[dd.selectedIndex].text;
+        var inputPrice = parseFloat(document.getElementById("Price").value);  
+        var inputbook = document.getElementById("Book").value;
+
+        msg += "-----------------------\n";
+        for (i = 0; i < selOptions.length; i++) {
+            
+            var selOption = selOptions[i];
+            subtotal += parseFloat(selOption.value);
+            msg += "$" + selOption.value + " - " + selOption.text+ "\n";
+        }
+        if (inputPrice > 0) {
+            msg += "$" + inputPrice + " - " + inputbook + "\n";
+            
+
+            subtotal += inputPrice;
+        }
+
+        for (i = 0; i < rb1.length; i++) {
+            if (rb1[0].checked) {
+                msg += "General Customer\n";
+                break;
+            }
+            if (rb1[1].checked) {
+                msg += "Government Customer\n";
+                break;
+            }
+        }
+        for (i = 0; i < chk.length; i++) {
+            if (chk[0].checked) {
+                msg += "$" + chk[0].value + "Rush Order\n";
+                subtotal += parseFloat(chk[0].value);
+                
+            }
+            if (chk[1].checked) {
+                msg += "$" + chk[1].value + "Gift Wrap\n";
+                subtotal += parseFloat(chk[1].value);
+                break;
+            }
+            else {
+                break;
+            }
+        }
+        subtotal += parseFloat(shippingPrice);
+        msg += "$" + shippingPrice + "-" + "Shipping To: " + shippingLocation+"\n";
+        msg += "-----------------------\n";
+        msg += "Subtotal: $" + subtotal+"\n";
+        for (i=0; i<rb1.length; i++) {
+            if (rb1[1].checked) {
+                
+		        discount = parseFloat(rb1[1].value);
+                msg += "Discount(10%): " + (subtotal * discount) + "\n";
+                break;
+		        
+		    }
+        
+        }
+        total = subtotal - (subtotal * discount);
+        msg += "Total: " + total;
+        document.getElementById("Total").innerHTML = msg;
+        }
+
+    </script>
+</head>
+<body>
+    <form id="hello">
+        <h3>
+
+        Book Order Form</h3>
+        <p class ="ex5">
+
+            Select Books and/or supply book title and price
+        <select size="4" id="booklist" multiple name="D1">
+      <option value="20.00">Walden Pond</option>
+      <option value="15.00">Zen and the Art</option>
+      <option value="8.00">The Razor's Edge</option>
+      <option value="15.00">The Poisonwood Bible</option>
+      <option value="10.00">Wuthering Heights</option>
+      
+    </select>
+
+        </p>
+        <p style="margin-left: 120px">
+        Book
+        <input id="Book" type="text" value = ""/>
+        Price
+        <input id="Price" type="text" value = "" />
+    </p>
+
+     
+    <p >Options
+        
+        <input type="checkbox" name="checkbox" value="10.00"/>Rush Order
+<input type="checkbox" name="checkbox" value="5.00"/>Gift Wrap<br>
+
+
+
+        
+        
+        </p>
+
+    <p>Customer Type
+
+
+        <input type="radio" value="0" name="Discount" id="d1"/>General<br>
+        <input type="radio" value="0.10" name="Discount" id="d2"/>Government<br>
+
+    </p>
+
+
+
+
+    <p >Ship To
+        <select size="1" id="Shipping">
+      <option value="5.00">NY($5)</option>
+      <option value="7.0">CA($7)</option>
+      <option value="3.0">SC($3)</option>
+    </select>
+
+    </p>
+
+       <p>
+        <button type="button" onclick="Purchase()">purchase</button>
+        
+        <textarea rows="10" id="Total" cols="50"></textarea></p>
+    
+
+   
+</form>
+
+    <p><a href="default.html">Home</a></p>
+</body>
+</html>
